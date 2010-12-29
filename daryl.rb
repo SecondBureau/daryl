@@ -9,8 +9,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 class Bot
   include DataMapper::Resource  
   property :id,   Serial
-  property :name, String
-  property :signature, String
+  property :name, String,        :length => 200
+  property :signature, String,   :length => 200
   property :created_at, DateTime
   property :updated_at, DateTime
 end
@@ -18,7 +18,7 @@ end
 class Os
 include DataMapper::Resource  
   property :id,   Serial
-  property :name, String
+  property :name, String,   :length => 200
   property :signature, String
   property :created_at, DateTime
   property :updated_at, DateTime
@@ -27,9 +27,9 @@ end
 class Account
 include DataMapper::Resource  
   property :id,  Serial
-  property :domain, String
-  property :gacode, String
-  property :utma  , String
+  property :domain, String,   :length => 200
+  property :gacode, String,   :length => 200
+  property :utma  , String,   :length => 200
   property :created_at, DateTime
   property :updated_at, DateTime
 end
@@ -37,11 +37,11 @@ end
 class Page
 include DataMapper::Resource  
   property :id,   Serial
-  property :host, String
-  property :agent, String
+  property :host, String,         :length => 200
+  property :agent, String,        :length => 200
   property :uri, Text
   property :sent_at, DateTime
-  property :return_code, String
+  property :return_code, String,  :length => 200
   property :created_at, DateTime
   property :updated_at, DateTime
 end
