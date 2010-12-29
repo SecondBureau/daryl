@@ -37,7 +37,7 @@ end
 class Page
 include DataMapper::Resource  
   property :id,   Serial
-  property :domain, String
+  property :host, String
   property :agent, String
   property :uri, Text
   property :sent_at, DateTime
