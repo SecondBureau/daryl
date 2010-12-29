@@ -53,6 +53,18 @@ DataMapper.auto_upgrade!
 
 get '/' do 
   "Hello from sinatra on heroku!"
+
 end
 
+post '/page/create' do
+  page = Page.new(params[:page])
+  if page.save
+    status 201
+    "OK"
+    page.inspect
+  else
+    status 412
+    "KO"
+  end
+end
 
