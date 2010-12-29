@@ -1,44 +1,52 @@
+require 'rubygems'
 require 'sinatra'
 require 'datamapper'
-require 'syntaxi'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
 ### MODELS
 
-class Bot < DataMapper::base
-  property :name, :string
-  property :signature, :string
-  property :created_at, :datetime
-  property :updated_at, :datetime
+class Bot
+  include DataMapper::Resource  
+  property :id,   Serial
+  property :name, String
+  property :signature, String
+  property :created_at, DateTime
+  property :updated_at, DateTime
 end
 
-class Os < DataMapper::base
-  property :name, :string
-  property :signature, :string
-  property :created_at, :datetime
-  property :updated_at, :datetime
+class Os
+include DataMapper::Resource  
+  property :id,   Serial
+  property :name, String
+  property :signature, String
+  property :created_at, DateTime
+  property :updated_at, DateTime
 end
 
-class Account < DataMapper::base
-  property :domain, :string
-  property :gacode, :string
-  property :utma  , :string
-  property :created_at, :datetime
-  property :updated_at, :datetime
+class Account
+include DataMapper::Resource  
+  property :id,  Serial
+  property :domain, String
+  property :gacode, String
+  property :utma  , String
+  property :created_at, DateTime
+  property :updated_at, DateTime
 end
 
-class Page < DataMapper::base
-  property :domain, :string  
-  property :agent, :string
-  property :uri, :text
-  property :sent_at, :datetime
-  property :return_code, :string
-  property :created_at, :datetime
-  property :updated_at, :datetime
+class Page
+include DataMapper::Resource  
+  property :id,   Serial
+  property :domain, String
+  property :agent, String
+  property :uri, Text
+  property :sent_at, DateTime
+  property :return_code, String
+  property :created_at, DateTime
+  property :updated_at, DateTime
 end
 
-database.table_exists?(Bot) or database.save(Bot)
+DataMapper.auto_upgrade!
 
 
 ### CONTROLLER ACTIONS
