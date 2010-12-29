@@ -1,7 +1,5 @@
 require 'rubygems'
-require 'sinatra'
-require 'datamapper'
-require 'syntaxi'
+require 'bundler'
 
 Bundler.require
 

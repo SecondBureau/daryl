@@ -1,4 +1,6 @@
-
+require 'sinatra'
+require 'datamapper'
+require 'syntaxi'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'sqlite3://my.db')
 
