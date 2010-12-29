@@ -33,7 +33,7 @@ class Page < DataMapper::base
   property :domain, :string  
   property :agent, :string
   property :uri, :text
-  property :sent_at :datetime
+  property :sent_at, :datetime
   property :return_code, :string
   property :created_at, :datetime
   property :updated_at, :datetime
