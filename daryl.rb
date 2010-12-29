@@ -57,6 +57,7 @@ get '/' do
 end
 
 post '/page/create' do
+puts params[:page].inspect
   page = Page.new(params[:page])
   if page.save
     status 201
