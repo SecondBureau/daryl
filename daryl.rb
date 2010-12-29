@@ -1,5 +1,5 @@
 require 'rubygems'
-#require 'sinatra'
+require 'sinatra'
 
 get '/' do 
   "Hello from sinatra on heroku!"
