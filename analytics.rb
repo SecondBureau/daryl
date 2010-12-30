@@ -54,5 +54,6 @@ class Bot
       r = Regexp.new(bot.signature)
       return bot unless r.match(agent).nil?
     end
+    nil
   end
 end
