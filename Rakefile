@@ -5,11 +5,13 @@ task :cron do
   require 'analytics'
   Page.all(:sent_at => nil).each do |p|
     if p.is_os?
+      puts "#{p.id} n'est pas OS"
       p.return_code = 2
     else
+    puts "#{p.id} send to ga"
       p.send_to_ga
     end
-    p.sent = Time.now
+    p.sent_at = Time.now
     #p.save
   end
 end
