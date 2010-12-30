@@ -50,6 +50,7 @@ end
 
 class Bot
   def self.find_by_agent(agent)
+  puts "#{agent}"
     Bot.all.each do |bot|
       puts bot.signature
       #r = Regexp.new(bot.signature)
