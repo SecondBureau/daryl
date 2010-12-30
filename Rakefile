@@ -3,16 +3,19 @@ require 'daryl.rb'
 desc "GA integration"
 task :cron do
   require 'analytics'
-  Page.all(:sent_at => nil).each do |p|
+  pages = Page.all(:sent_at => nil)
+  while pages.count > 0 do
+    p =  pages[rand(pages.count)]
     if p.is_os?
       puts "#{p.id} n'est pas OS"
       p.return_code = 2
     else
-    puts "#{p.id} send to ga"
+      puts "#{p.id} send to ga"
       p.send_to_ga
     end
     p.sent_at = Time.now
-    #p.save
+    p.save
+    pages = Page.all(:sent_at => nil)
   end
 end
 
