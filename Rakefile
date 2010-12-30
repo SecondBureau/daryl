@@ -42,7 +42,7 @@ namespace :db do
       o.save
     end
     # ruby files
-    Dir["#{seeds_path}/*"].select { |file| /(rb)$/ =~ file }.sort.each {require file}
+    Dir["#{seeds_path}/*"].select { |file| /(rb)$/ =~ file }.sort.each {|f| require f}
 end
 
 puts Account.all.inspect
