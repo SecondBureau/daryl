@@ -1,0 +1,5 @@
+demo-baskingshark:
+  uniq: [domain]
+  domain: demo-bsconsult.secondbureau.com
+  gacode: 123456789
+  utma: 123456789
