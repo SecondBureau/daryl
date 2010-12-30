@@ -2,7 +2,16 @@ require 'daryl.rb'
     
 desc "GA integration"
 task :cron do
-puts "ok"
+  require 'analytics'
+  Page.all(:sent_at => nil).each do |p|
+    if p.is_os?
+      p.return_code = 2
+    else
+      p.send_to_ga
+    end
+    p.sent = Time.now
+    #p.save
+  end
 end
 
 
