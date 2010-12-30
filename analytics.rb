@@ -52,8 +52,8 @@ class Bot
   def self.find_by_agent(agent)
     Bot.all.each do |bot|
       puts bot.signature
-      r = Regexp.new(bot.signature)
-      return bot unless r.match(agent).nil?
+      #r = Regexp.new(bot.signature)
+      #return bot unless r.match(agent).nil?
     end
     nil
   end
