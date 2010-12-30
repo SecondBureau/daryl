@@ -840,7 +840,8 @@
   '^snap.com' => 'SPAM',
   '^Guestbook Auto Submitter' => 'SPAM',
   'panscient.com' => 'SPAM',
-  '(robot|spider|harvest|bot|crawler)' => 'Unknown Robot'
+  '(robot|spider|harvest|bot|crawler)' => 'Unknown Robot',
+  '^NewRelicPinger[ /]([0-9.]{1,5})' => 'New Relic Pinger'
 }.each do |signature, name| 
   bot = Bot.first(:signature => signature) || Bot.new
   bot.signature = signature
