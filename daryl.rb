@@ -40,6 +40,7 @@ include DataMapper::Resource
   property :host, String
   property :agent, Text
   property :uri, Text
+  property :ip, String
   property :sent_at, DateTime
   property :return_code, String
   property :created_at, DateTime
