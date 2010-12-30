@@ -10,12 +10,14 @@ class Page
   def send_to_ga
     account = Account.first(:domain => host)
     if account.nil?
+      puts "#{domain} not found"
       return_code = 3
       return
     end
     
     bot = Bot.find_by_agent(agent)
     if bot.nil?
+      puts "#{agent} not found"
       return_code = 4
       return
     end
@@ -39,7 +41,7 @@ class Page
 		url +=  "&utmac=#{account.gacode}"
 		url +=  "&utmcc=__utma%3D#{account.utma}.#{r}.#{now}.#{now}.#{now}.1%3B%2B__utmb%3D#{account.utma}%3B%2B__utmc%3D#{account.utma}%3B%2B__utmz%3D#{account.utma}.#{now}.1.1.utmccn%3D(organic)%7Cutmcsr%3D#{bot.name}%7Cutmctr%3D#{uri}%7Cutmcmd%3Dorganic%3B%2B__utmv%3D#{account.utma}.Robot%20hostname%3A%20#{server}%3B"
 		
-		puts url	
+		puts "#{agent} : #{url}"
   end
   
 end
