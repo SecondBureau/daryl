@@ -3,23 +3,23 @@ class Page
   def is_os?
     Os.all.each do |os|
       r = Regexp.new(os.signature)
-      return true unless r.match(agent).nil?
+      return true unless r.match(self.agent).nil?
     end
     false
   end
   
   def send_to_ga
-    account = Account.first(:domain => host)
+    account = Account.first(:domain => self.host)
     if account.nil?
-      puts "#{host} not found"
-      return_code = 3
+      puts "#{self.host} not found"
+      self.return_code = 3
       return
     end
     
-    bot = Bot.find_by_agent(agent)
+    bot = Bot.find_by_agent(self.agent)
     if bot.nil?
-      puts "#{agent} not found"
-      return_code = 4
+      puts "#{self.agent} not found"
+      self.return_code = 4
       return
     end
 	
@@ -30,7 +30,7 @@ class Page
   def gaurl
     now = Page.last.created_at.to_time.to_i
     r   = rand(1000000000) + 1000000000
-    server = Socket.getaddrinfo(Page.ip || '0.0.0.0', 0, Socket::AF_UNSPEC, Socket::SOCK_STREAM, nil, Socket::AI_CANONNAME)[0][2]
+    server = Socket.getaddrinfo(self.ip || '0.0.0.0', 0, Socket::AF_UNSPEC, Socket::SOCK_STREAM, nil, Socket::AI_CANONNAME)[0][2]
       
     url =   'http://www.google-analytics.com/__utm.gif?'
     url +=  'utmwv=1'
@@ -41,11 +41,11 @@ class Page
 		url +=  '&utmje=0'						# Java enabled
 		url +=  '&utmfl=-'					  # Flash version	
 		url +=  '&utmdt='				      # Page
-		url +=  "&utmhn=#{host}"      # Host
+		url +=  "&utmhn=#{self.host}"      # Host
 		url +=  '&utmr=-'             # Referrer
-		url +=  "&utmp=#{uri}"
+		url +=  "&utmp=#{self.uri}"
 		url +=  "&utmac=#{account.gacode}"
-		url +=  "&utmcc=__utma%3D#{account.utma}.#{r}.#{now}.#{now}.#{now}.1%3B%2B__utmb%3D#{account.utma}%3B%2B__utmc%3D#{account.utma}%3B%2B__utmz%3D#{account.utma}.#{now}.1.1.utmccn%3D(organic)%7Cutmcsr%3D#{bot.name}%7Cutmctr%3D#{uri}%7Cutmcmd%3Dorganic%3B%2B__utmv%3D#{account.utma}.Robot%20hostname%3A%20#{server}%3B"
+		url +=  "&utmcc=__utma%3D#{account.utma}.#{r}.#{now}.#{now}.#{now}.1%3B%2B__utmb%3D#{account.utma}%3B%2B__utmc%3D#{account.utma}%3B%2B__utmz%3D#{account.utma}.#{now}.1.1.utmccn%3D(organic)%7Cutmcsr%3D#{bot.name}%7Cutmctr%3D#{self.uri}%7Cutmcmd%3Dorganic%3B%2B__utmv%3D#{account.utma}.Robot%20hostname%3A%20#{server}%3B"
 		url
   end
   
@@ -54,7 +54,6 @@ end
 class Bot
   def self.find_by_agent(agent)
     Bot.all.each do |bot|
-      puts bot.signature
       r = Regexp.new(bot.signature)
       return bot unless r.match(agent).nil?
     end
