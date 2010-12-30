@@ -10,7 +10,7 @@ class Page
   def send_to_ga
     account = Account.first(:domain => host)
     if account.nil?
-      puts "#{domain} not found"
+      puts "#{host} not found"
       return_code = 3
       return
     end
