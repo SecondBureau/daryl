@@ -1,5 +1,17 @@
 demo-baskingshark:
   uniq: [domain]
   domain: demo-bsconsult.secondbureau.com
-  gacode: 123456789
-  utma: 123456789
+  gacode: UA-20212598-3
+  utma: 50422844
+production-eastasia:
+  uniq: [domain]
+  domain: eastasia.fr
+  gacode: UA-18939774-2
+  utma: 1 
+production-www-eastasia:
+  uniq: [domain]
+  domain: www.eastasia.fr
+  gacode: UA-18939774-2
+  utma: 1 
+  
+  
