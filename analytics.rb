@@ -22,6 +22,8 @@ class Page
       return
     end
     
+    puts bot.inspect
+    
     now = Time.now.to_i
     r   = rand(1000000000) + 1000000000
     server = 'titi' #gethostbyaddr( $_SERVER['REMOTE_ADDR'] )
