@@ -10,13 +10,13 @@ class Page
   def send_to_ga
     account = Account.first(:domain => host)
     if account.nil?
-      p.return_code = 3
+      return_code = 3
       return
     end
     
     bot = Bot.find_by_agent(agent)
     if bot.nil?
-      p.return_code = 4
+      return_code = 4
       return
     end
     
