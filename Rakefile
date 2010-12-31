@@ -32,7 +32,10 @@ end
 desc "Debug page 200"
 task :agent200 do
   require 'analytics'
-  Page.all(:return_code => '200').each {|a| puts "#{a.agent} ==> #{Bot.find_by_agent(a.agent).name}" }
+  Page.all(:return_code => '200').each do |a| 
+    bot = Bot.find_by_agent(a.agent)
+    puts "#{a.agent} ==> #{bot.name}" unless bot.name.eql?('New Relic Pinger')
+  end
 end
 
 desc "Load Database"
