@@ -16,12 +16,15 @@ module SecondBureau
           agent   = request.env["HTTP_USER_AGENT"]
           host    = request.host
           uri     = request.fullpath
+          ip      = request.env['HTTP_X_REAL_IP']
+          #logger.warn(request.env.inspect)
           Thread.new do
-            Net::HTTP.post_form(URI.parse(url), {'page[host]'=>host, 'page[agent]' => agent, 'page[uri]' => uri})
+            Net::HTTP.post_form(URI.parse(url), {'page[ip]'=>ip, 'page[host]'=>host, 'page[agent]' => agent, 'page[uri]' => uri})
           end
         end
   end
 end
 
 ActionController::Base.send :include, SecondBureau::Daryl
+
 
