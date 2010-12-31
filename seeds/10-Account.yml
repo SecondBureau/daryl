@@ -23,5 +23,15 @@ production-www-eastasiavod:
   domain: www.eastasiavod.fr
   gacode: UA-18939774-2
   utma: 1 
+production-www-secondbureau:
+  uniq: [domain]
+  domain: www.secondbureau.com
+  gacode: UA-20499515-2
+  utma: 1 
+production-secondbureau:
+  uniq: [domain]
+  domain: secondbureau.com
+  gacode: UA-20499515-2
+  utma: 1 
   
   
