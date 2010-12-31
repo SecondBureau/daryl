@@ -843,7 +843,7 @@
   '^snap.com' => 'SPAM',
   '^Guestbook Auto Submitter' => 'SPAM',
   'panscient.com' => 'SPAM',
-  '(robot|spider|harvest|bot|crawler)' => 'Unknown Robot',
+  'xxxxxxxxxxxxxxxxxxxxxx' => 'Unknown Robot',
   '^NewRelicPinger[ /]([0-9.]{1,5})' => 'New Relic Pinger'
 }.each { |signature, name|  Bot.first_or_create({:signature => signature}, {:name => name} ) } 
 

@@ -11,10 +11,10 @@ task :cron do
     p.save
     begin
     if p.is_os?
-      puts "#{p.id} n'est pas OS"
+      #puts "#{p.id} n'est pas Bot"
       p.return_code = 2
     else
-      puts "#{p.id} send to ga"
+      #puts "#{p.id} send to ga"
       p.send_to_ga
     end
     p.sent_at = Time.now

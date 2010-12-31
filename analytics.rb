@@ -15,14 +15,14 @@ class Page
   def send_to_ga
     @account = Account.first(:domain => self.host)
     if @account.nil?
-      puts "#{self.host} not found"
+      #puts "#{self.host} not found"
       self.return_code = 3
       return
     end
     
     @bot = Bot.find_by_agent(self.agent)
     if @bot.nil?
-      puts "#{self.agent} not found"
+      #puts "#{self.agent} not found"
       self.return_code = 4
       return
     end
@@ -30,7 +30,7 @@ class Page
 	 curl_handler = Curl::Easy.new(gaurl)
    curl_handler.http_get
    self.return_code = curl_handler.response_code
-	 puts "#{@bot.name} #{self.uri} #{self.return_code}"
+	 #puts "#{@bot.name} #{self.uri} #{self.return_code}"
 	
   end
   
@@ -68,6 +68,9 @@ class Bot
       r = Regexp.new(bot.signature)
       return bot unless r.match(agent).nil?
     end
+    bot = Bot.first(:name => 'Unknown Robot')
+    r = Regexp.new('(robot|spider|harvest|bot|crawler)')
+    return bot unless r.match(agent).nil?
     nil
   end
 end
