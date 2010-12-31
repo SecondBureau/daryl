@@ -49,6 +49,11 @@ end
 
 DataMapper.auto_upgrade!
 
+### New Relic
+configure :production do 
+  require 'newrelic_rpm'
+end
+
 
 ### CONTROLLER ACTIONS
 
