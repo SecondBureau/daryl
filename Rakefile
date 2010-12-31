@@ -31,6 +31,7 @@ end
 
 desc "Debug page 200"
 task :agent200 do
+  require 'analytics'
   Page.all(:return_code => '200').each {|a| puts "#{a.agent} ==> #{Bot.find_by_agent(a.agent)}" }
 end
 
