@@ -4,4 +4,4 @@ json
 syntaxi
 dm-postgres-adapter
 curb
-newrelic
+newrelic_rpm
