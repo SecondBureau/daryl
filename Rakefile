@@ -4,8 +4,12 @@ desc "GA integration"
 task :cron do
   require 'analytics'
   pages = Page.all(:sent_at => nil)
-  while pages.count > 0 do
-    p =  pages[rand(pages.count)]
+  n = pages.count
+  while n > 0 do
+    p =  pages[rand(n)]
+    p.sent_at = Time.now
+    p.save
+    begin
     if p.is_os?
       puts "#{p.id} n'est pas OS"
       p.return_code = 2
@@ -15,7 +19,12 @@ task :cron do
     end
     p.sent_at = Time.now
     p.save
+    rescue
+      p.return_code = 5
+      p.save
+    end
     pages = Page.all(:sent_at => nil)
+    n = pages.count
   end
 end
 

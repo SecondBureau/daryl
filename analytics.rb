@@ -1,7 +1,8 @@
 require 'socket'
-class Page
+require 'curb'
+require 'cgi'
 
-  
+class Page
 
   def is_os?
     Os.all.each do |os|
@@ -26,14 +27,17 @@ class Page
       return
     end
 	
-	  puts gaurl
+	 curl_handler = Curl::Easy.new(gaurl)
+   curl_handler.http_get
+   self.return_code = curl_handler.response_code
+	 puts "#{@bot.name} #{self.uri} #{self.return_code}"
 	
   end
   
   def gaurl
     now = Page.last.created_at.to_time.to_i
     r   = rand(1000000000) + 1000000000
-    server = Socket.getaddrinfo(self.ip || '0.0.0.0', 0, Socket::AF_UNSPEC, Socket::SOCK_STREAM, nil, Socket::AI_CANONNAME)[0][2]
+    server = CGI::escape(Socket.getaddrinfo(self.ip || '0.0.0.0', 0, Socket::AF_UNSPEC, Socket::SOCK_STREAM, nil, Socket::AI_CANONNAME)[0][2])
       
     url =   'http://www.google-analytics.com/__utm.gif?'
     url +=  'utmwv=1'
@@ -48,7 +52,7 @@ class Page
 		url +=  '&utmr=-'             # Referrer
 		url +=  "&utmp=#{self.uri}"
 		url +=  "&utmac=#{@account.gacode}"
-		url +=  "&utmcc=__utma%3D#{@account.utma}.#{r}.#{now}.#{now}.#{now}.1%3B%2B__utmb%3D#{@account.utma}%3B%2B__utmc%3D#{@account.utma}%3B%2B__utmz%3D#{@account.utma}.#{now}.1.1.utmccn%3D(organic)%7Cutmcsr%3D#{@bot.name}%7Cutmctr%3D#{self.uri}%7Cutmcmd%3Dorganic%3B%2B__utmv%3D#{@account.utma}.Robot%20hostname%3A%20#{server}%3B"
+		url +=  "&utmcc=__utma%3D#{@account.utma}.#{r}.#{now}.#{now}.#{now}.1%3B%2B__utmb%3D#{@account.utma}%3B%2B__utmc%3D#{@account.utma}%3B%2B__utmz%3D#{@account.utma}.#{now}.1.1.utmccn%3D(organic)%7Cutmcsr%3D#{CGI::escape(@bot.name)}%7Cutmctr%3D#{CGI::escape(self.uri)}%7Cutmcmd%3Dorganic%3B%2B__utmv%3D#{@account.utma}.Robot%20hostname%3A%20#{server}%3B"
 		url
   end
   
