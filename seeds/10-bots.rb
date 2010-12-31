@@ -849,4 +849,4 @@
   bot.save
 end 
 
-puts Bot.all.inspect
+#puts Bot.all.inspect

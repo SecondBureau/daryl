@@ -29,6 +29,11 @@ task :cron do
 end
 
 
+desc "Debug page 200"
+task :agent200 do
+  Page.all(:return_code => '200').each {|a| puts "#{a.agent} ==> #{Bot.find_by_agent(a.agent)}" }
+end
+
 desc "Load Database"
 namespace :db do
   task :seed do
