@@ -13,5 +13,15 @@ production-www-eastasia:
   domain: www.eastasia.fr
   gacode: UA-18939774-2
   utma: 1 
+production-eastasiavod:
+  uniq: [domain]
+  domain: eastasiavod.fr
+  gacode: UA-18939774-2
+  utma: 1 
+production-www-eastasiavod:
+  uniq: [domain]
+  domain: www.eastasiavod.fr
+  gacode: UA-18939774-2
+  utma: 1 
   
   
