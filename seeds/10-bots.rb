@@ -194,6 +194,7 @@
   'disco/Nutch[/ -]([0-9.]{1,10})' => 'disco',
   'disco-crawl@discoveryengine.com' => 'disco',
   'DISCo Pump[/ ]([0-9.]{1,10})' => 'DISCo Pump',
+  'DotBot[/ ]([0-9.]{1,10})' => 'dotnetdotcom.org',
   'DNS-Digger-Explorer[ /]([0-9.]{1,10})' => 'DNS-Digger',
   'Doctor[ \-]?HTML' => 'DoctorHTML',
   'DomaindateiSpider[ /]([0-9.]{1,10})' => 'Domaindatei',
@@ -844,11 +845,6 @@
   'panscient.com' => 'SPAM',
   '(robot|spider|harvest|bot|crawler)' => 'Unknown Robot',
   '^NewRelicPinger[ /]([0-9.]{1,5})' => 'New Relic Pinger'
-}.each do |signature, name| 
-  bot = Bot.first(:signature => signature) || Bot.new
-  bot.signature = signature
-  bot.name = name
-  bot.save
-end 
+}.each { |signature, name|  Bot.first_or_create({:signature => signature}, {:name => name} ) } 
 
-#puts Bot.all.inspect
+puts Bot.all.inspect

@@ -34,10 +34,14 @@ class Page
 	
   end
   
+  def getaddrinfo
+    Socket.getaddrinfo(self.ip || '0.0.0.0', 0, Socket::AF_UNSPEC, Socket::SOCK_STREAM, nil, Socket::AI_CANONNAME)[0][2] 
+  end
+  
   def gaurl
     now = Page.last.created_at.to_time.to_i
     r   = rand(1000000000) + 1000000000
-    server = CGI::escape(Socket.getaddrinfo(self.ip || '0.0.0.0', 0, Socket::AF_UNSPEC, Socket::SOCK_STREAM, nil, Socket::AI_CANONNAME)[0][2])
+    server = CGI::escape(getaddrinfo)
       
     url =   'http://www.google-analytics.com/__utm.gif?'
     url +=  'utmwv=1'
