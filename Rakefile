@@ -26,6 +26,9 @@ task :cron do
     pages = Page.all(:sent_at => nil)
     n = pages.count
   end
+  
+  Page.purge_sent_pages('200')
+  
 end
 
 
