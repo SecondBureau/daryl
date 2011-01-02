@@ -849,4 +849,4 @@
   'majestic12.co.uk' => 'Majestic 12'
 }.each { |signature, name|  Bot.first_or_create({:signature => signature}, {:name => name} ) } 
 
-puts Bot.all.inspect
+puts Bot.all(:created_at.gt => Time.now - 100 ).inspect

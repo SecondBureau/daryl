@@ -16,5 +16,4 @@
   'ubuntu' => 'ubuntu'
 }.each { |signature, name|  Os.first_or_create({:signature => signature}, {:name => name}) }      
         
-
-#puts Os.all.inspect
+puts Os.all(:created_at.gt => Time.now - 100 ).inspect

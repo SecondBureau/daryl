@@ -69,7 +69,7 @@ namespace :db do
     Dir["#{seeds_path}/*"].select { |file| /(rb)$/ =~ file }.sort.each {|f| require f}
 end
 
-puts Account.all.inspect
+puts Account.all(:created_at.gt => Time.now - 100 ).inspect
 
   end
 end
