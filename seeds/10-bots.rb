@@ -851,4 +851,4 @@
   'search\.msn\.com/msnbot\.htm' => 'MSN/Bing'
 }.each { |signature, name|  Bot.first_or_create({:signature => signature}, {:name => name} ) } 
 
-puts Bot.all(:created_at.gt => Time.now - 100 ).inspect
+

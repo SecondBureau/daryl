@@ -14,6 +14,4 @@
   'open[ \-]?bsd' => 'openbsd',
   'PCLinuxOS[ /]?([0-9.]{1,10})' => 'pclinux',
   'ubuntu' => 'ubuntu'
-}.each { |signature, name|  Os.first_or_create({:signature => signature}, {:name => name}) }      
-        
-puts Os.all(:created_at.gt => Time.now - 100 ).inspect
+}.each { |signature, name|  o = Os.first_or_new({:signature => signature}, {:name => name}); o.save }      

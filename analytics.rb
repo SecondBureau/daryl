@@ -6,7 +6,7 @@ class Page
 
   def is_os?
     Os.all.each do |os|
-      r = Regexp.new(os.signature)
+      r = Regexp.new(os.signature, true)
       return true unless r.match(self.agent).nil?
     end
     false
@@ -69,11 +69,11 @@ end
 class Bot
   def self.find_by_agent(agent)
     Bot.all.each do |bot|
-      r = Regexp.new(bot.signature)
+      r = Regexp.new(bot.signature, true))
       return bot unless r.match(agent).nil?
     end
     bot = Bot.first(:name => 'Unknown Robot')
-    r = Regexp.new('(robot|spider|harvest|bot|crawler)')
+    r = Regexp.new('(robot|spider|harvest|bot|crawler)', true))
     return bot unless r.match(agent).nil?
     nil
   end
