@@ -18,6 +18,6 @@ Os.send :extend, Daryl::Tools
 
 class Page
   def self.learn
-    all(:sent_at.not => nil, :return_code => ['3','4']).each {|p| "#{p.id} #{p.return_code} #{p.host} #{p.agent} #{p.updated_at.to_s}\n" }
+    all(:sent_at.not => nil, :return_code => ['3','4']).collect {|p| "#{p.id} #{p.return_code} #{p.host} #{p.agent} #{p.updated_at.to_s}" }.join("\n")
   end
 end
