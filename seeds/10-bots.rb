@@ -849,6 +849,6 @@
   'majestic12\.co\.uk' => 'Majestic 12',
   '^msnbot[ /]v([0-9.]{1,10})' => 'MSN/Bing',
   'search\.msn\.com/msnbot\.htm' => 'MSN/Bing'
-}.each { |signature, name|  Bot.first_or_create({:signature => signature}, {:name => name} ) } 
+}.each { |signature, name|  b=Bot.first_or_new({:signature => signature}, {:name => name} ); b.save } 
 
 
