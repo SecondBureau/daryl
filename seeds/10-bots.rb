@@ -846,7 +846,9 @@
   'xxxxxxxxxxxxxxxxxxxxxx' => 'Unknown Robot',
   '^NewRelicPinger[ /]([0-9.]{1,5})' => 'New Relic Pinger',
   '^MJ12bot/v([0-9.]{1,10})' => 'Majestic 12',
-  'majestic12.co.uk' => 'Majestic 12'
+  'majestic12\.co\.uk' => 'Majestic 12',
+  '^msnbot[ /]v([0-9.]{1,10})' => 'MSN',
+  'search\.msn\.com/msnbot\.htm' => 'MSN'
 }.each { |signature, name|  Bot.first_or_create({:signature => signature}, {:name => name} ) } 
 
 puts Bot.all(:created_at.gt => Time.now - 100 ).inspect
