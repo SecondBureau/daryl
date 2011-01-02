@@ -13,16 +13,46 @@ production-www-eastasia:
   domain: www.eastasia.fr
   gacode: UA-18939774-2
   utma: 1 
-production-eastasiavod:
+production-asiavod:
+  uniq: [domain]
+  domain: asiavod.fr
+  gacode: UA-18939774-2
+  utma: 1 
+production-www-asiavod:
+  uniq: [domain]
+  domain: www.asiavod.fr
+  gacode: UA-18939774-2
+  utma: 1
+production-eastasiavod-fr:
   uniq: [domain]
   domain: eastasiavod.fr
   gacode: UA-18939774-2
   utma: 1 
-production-www-eastasiavod:
+production-www-eastasiavod-fr:
   uniq: [domain]
   domain: www.eastasiavod.fr
   gacode: UA-18939774-2
   utma: 1 
+production-eastasiavod-com:
+  uniq: [domain]
+  domain: eastasiavod.com
+  gacode: UA-18939774-2
+  utma: 1 
+production-www-eastasiavod-com:
+  uniq: [domain]
+  domain: www.eastasiavod.com
+  gacode: UA-18939774-2
+  utma: 1
+production-eastasiavod-net:
+  uniq: [domain]
+  domain: eastasiavod.net
+  gacode: UA-18939774-2
+  utma: 1 
+production-www-eastasiavod-net:
+  uniq: [domain]
+  domain: www.eastasiavod.net
+  gacode: UA-18939774-2
+  utma: 1
 production-www-secondbureau:
   uniq: [domain]
   domain: www.secondbureau.com

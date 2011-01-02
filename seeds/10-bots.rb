@@ -848,7 +848,10 @@
   '^MJ12bot/v([0-9.]{1,10})' => 'Majestic 12',
   'majestic12\.co\.uk' => 'Majestic 12',
   '^msnbot[ /]v([0-9.]{1,10})' => 'MSN/Bing',
-  'search\.msn\.com/msnbot\.htm' => 'MSN/Bing'
+  'search\.msn\.com/msnbot\.htm' => 'MSN/Bing',
+  '^Twitterbot[ /]([0-9.]{1,5})' => 'Twitter',
+  '^facebookexternalhit[ /]([0-9.]{1,5})' => 'Facebook',
+  'JS-Kit URL Resolver' => 'JS Kit'
 }.each do |signature, name|  
   b = Bot.first_or_new(:signature => signature)
   b.name = name

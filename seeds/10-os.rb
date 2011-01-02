@@ -13,7 +13,8 @@
   'open[ \-]?bsd[ /]([a-z0-9._]{1,10})' => 'openbsd',
   'open[ \-]?bsd' => 'openbsd',
   'PCLinuxOS[ /]?([0-9.]{1,10})' => 'pclinux',
-  'ubuntu' => 'ubuntu'
+  'ubuntu' => 'ubuntu',
+  'SymbianOS' => 'Symbian'
 }.each do |signature, name|
     o = Os.first_or_new(:signature => signature)
     o.name = name
