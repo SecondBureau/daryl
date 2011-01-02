@@ -73,7 +73,7 @@ class Bot
       return bot unless r.match(agent).nil?
     end
     bot = Bot.first(:name => 'Unknown Robot')
-    r = Regexp.new('(robot|spider|harvest|bot|crawler)', true))
+    r = Regexp.new('(robot|spider|harvest|bot|crawler)', true)
     return bot unless r.match(agent).nil?
     nil
   end
