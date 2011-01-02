@@ -69,7 +69,7 @@ end
 class Bot
   def self.find_by_agent(agent)
     Bot.all.each do |bot|
-      r = Regexp.new(bot.signature, true))
+      r = Regexp.new(bot.signature, true)
       return bot unless r.match(agent).nil?
     end
     bot = Bot.first(:name => 'Unknown Robot')
