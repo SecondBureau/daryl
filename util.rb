@@ -15,3 +15,9 @@ end
 
 Bot.send :extend, Daryl::Tools
 Os.send :extend, Daryl::Tools
+
+class Page
+  def learn
+    all(:sent_at.not => nil, :return_code => ['3','4']).each {|p| puts "#{p.id} #{p.return_code} #{p.host} #{p.agent} #{p.updated_at.to_s}" }
+  end
+end
