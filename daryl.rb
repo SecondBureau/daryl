@@ -59,7 +59,10 @@ end
 
 get '/' do 
   "Hello from sinatra on heroku!"
+end
 
+get '/newrelic_daryl' do |c|
+  "newrelic OK"
 end
 
 post '/page/create' do
