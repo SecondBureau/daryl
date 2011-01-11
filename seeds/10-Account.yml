@@ -63,5 +63,8 @@ production-secondbureau:
   domain: secondbureau.com
   gacode: UA-20499515-2
   utma: 1 
-  
-  
+production-bijouterie-delhaye-com:
+  uniq: [domain]
+  domain: bijouterie-delhaye.com
+  gacode: UA-19680943-2
+  utma: 89273096
