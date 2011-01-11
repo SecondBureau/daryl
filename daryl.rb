@@ -61,11 +61,11 @@ get '/' do
   "Hello from sinatra on heroku!"
 end
 
-get '/newrelic_daryl' do |c|
+get '/newrelic_daryl' do
   "newrelic OK"
 end
 
-get '/whoami' do |c|
+get '/whoami' do
   "daryl : Sinatra App on #{%x[hostname]}" 
 end
 
