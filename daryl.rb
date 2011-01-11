@@ -65,6 +65,10 @@ get '/newrelic_daryl' do |c|
   "newrelic OK"
 end
 
+get '/whoami' do |c|
+  "daryl : Sinatra App on #{%x[hostname]}" 
+end
+
 post '/page/create' do
 puts params[:page].inspect
   page = Page.new(params[:page])
