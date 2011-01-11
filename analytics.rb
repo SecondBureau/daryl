@@ -61,7 +61,7 @@ class Page
   end
   
   def self.purge_sent_pages(return_code = nil)
-    Page.all({:sent_at.lt => Time.now - 60*60*2, :return_code => '200'}).destroy
+    Page.all({:sent_at.lt => Time.now - 60*60*2, :return_code => return_code}).destroy
   end
   
 end

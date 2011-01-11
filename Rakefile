@@ -28,6 +28,7 @@ task :cron do
   end
   
   Page.purge_sent_pages('200')
+  Page.purge_sent_pages('2')
   
 end
 
