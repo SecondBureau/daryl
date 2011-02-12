@@ -13,6 +13,9 @@ task :cron do
     if p.is_os?
       #puts "#{p.id} n'est pas Bot"
       p.return_code = 2
+    elsif p.is_ping?
+      #puts "#{p.id} est un ping"
+      p.return_code = 6
     else
       #puts "#{p.id} send to ga"
       p.send_to_ga

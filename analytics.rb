@@ -12,6 +12,17 @@ class Page
     false
   end
   
+  def is_ping?
+    {
+      '^NewRelicPinger[ /]([0-9.]{1,5})' => 'New Relic Pinger',
+      '^Pingdom\.com_bot_version_([0-9.]{1,5})_\(http://www\.pingdom\.com/\)' => 'Pingdom'
+    }.each do |signature, pinger|
+      r = Regexp.new(signature, true)
+      return true unless r.match(self.agent).nil?
+    end
+    false
+  end
+  
   def send_to_ga
     @account = Account.first(:domain => self.host)
     if @account.nil?

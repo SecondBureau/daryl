@@ -65,6 +65,10 @@ get '/newrelic_daryl' do
   "newrelic OK"
 end
 
+get '/pingdom' do
+  "pingdom OK"
+end
+
 get '/whoami' do
   "daryl : Sinatra App on #{%x[hostname]}" 
 end
