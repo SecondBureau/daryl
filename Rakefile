@@ -32,7 +32,7 @@ task :cron do
   
   Page.purge_sent_pages('200')
   Page.purge_sent_pages('2')
-  
+  Page.purge_sent_pages('6')
 end
 
 
