@@ -78,3 +78,13 @@ production-www-ape-pekin-com:
   domain: www.ape-pekin.com
   gacode: UA-26964405-2
   utma: 1
+production-jeu-maille-com:
+  uniq: [domain]
+  domain: jeu.maille.com
+  gacode: UA-24808336-4
+  utma: 1
+production-www-jeu-maille-com:
+  uniq: [domain]
+  domain: www.jeu.maille.com
+  gacode: UA-24808336-4
+  utma: 1
