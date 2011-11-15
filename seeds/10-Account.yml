@@ -82,9 +82,19 @@ production-jeu-maille-com:
   uniq: [domain]
   domain: jeu.maille.com
   gacode: UA-24808336-4
-  utma: 1
+  utma: 198339252
 production-www-jeu-maille-com:
   uniq: [domain]
   domain: www.jeu.maille.com
   gacode: UA-24808336-4
+  utma: 198339252
+production-club-maille-com:
+  uniq: [domain]
+  domain: club.maille.com
+  gacode: UA-24808336-5
   utma: 1
+production-www-club-maille-com:
+  uniq: [domain]
+  domain: www.club.maille.com
+  gacode: UA-24808336-5
+  utma: 76024519
