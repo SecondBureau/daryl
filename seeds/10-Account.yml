@@ -68,3 +68,13 @@ production-bijouterie-delhaye-com:
   domain: bijouterie-delhaye.com
   gacode: UA-19680943-2
   utma: 89273096
+production-ape-pekin-com:
+  uniq: [domain]
+  domain: ape-pekin.com
+  gacode: UA-26964405-2
+  utma: 1
+production-www-ape-pekin-com:
+  uniq: [domain]
+  domain: www.ape-pekin.com
+  gacode: UA-26964405-2
+  utma: 1
